@@ -1,0 +1,282 @@
+---
+title: "flex-tweet-search ::"
+runtime: shiny
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: default
+    source_code: https://github.com/jaytimm/flexdash-tweet-search
+---
+
+
+```{r}
+options(shiny.maxRequestSize = 30*1024^2)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(shiny, flexdashboard, tokenizer, quanteda, 
+               tidyr, magrittr, dplyr)
+```
+
+
+# Load Corpus
+## Column 1 {.tabset}
+### LOAD
+
+```{r}
+fileInput(inputId = "ui_corpus", 
+          label = "Select corpus as RDS file")
+
+h4(' ')
+dataTableOutput(outputId = "ui_demo_corpus")
+```
+
+
+
+
+```{r}
+reactive({
+
+  korpus <<- readRDS(file = input$ui_corpus$datapath)
+
+  showModal(modalDialog(title = "Corpus successfully uploaded", 
+                        tags$ul( 
+                          tags$li(sprintf("Documents/Tweets: %s", 
+                                          formatC(nrow(korpus), big.mark = ',')   )),
+                          
+                          tags$li(sprintf("Tokens: %s", 
+                                          formatC(sum(tokenizers::count_words(korpus$text)),
+                                                      big.mark = ',')    ))
+                          )))  
+  
+  output$ui_demo_corpus <- renderDataTable(korpus %>% 
+                                            slice(1:10) %>% 
+                                            select(-status_url, 
+                                                   -status_id, -congress), 
+                                       escape = F, 
+                                       options = list(dom = 't'))
+  })
+```
+
+
+
+# Search Corpus
+## Column 1 {.tabset}
+### Context
+
+```{r}
+shiny::splitLayout(
+    shiny::textInput(inputId = 'ui_search', 
+              label = 'Input lexical pattern',
+              value = 'flatten(ing)? the curve|flattenthecurve'),
+    
+    shiny::numericInput(inputId = 'ui_window', label = 'Window size',
+                        min = 3, max = 25, value = 10)  
+    )
+
+
+#h4('eg: frontline worker(s)?|front line worker(s)?|frontlineworker(s)')
+actionButton(inputId = "ui_enter", label = "Search pattern")
+HTML('<br>'); HTML('<br>')
+
+dataTableOutput(outputId = "search_results")
+```
+
+
+
+
+```{r}
+search_better <- function(x) {
+  a1 <- gsub('(^ )([[:alnum:]])', '^\\2', x)  
+  a2 <- gsub('( )([[:alnum:]])', '\\1^\\2', a1)
+  trimws(gsub('([[:alnum:]])( )', '\\1$\\2', a2))  }
+
+
+
+## get search pattern --
+results <- eventReactive(input$ui_enter, {
+
+  showModal(modalDialog("Searching corpus for lexical pattern", 
+                        footer = input$ui_search))
+
+  windy <-input$ui_window
+  search <- input$ui_search
+  qorp <<- quanteda::corpus(korpus)
+  quanteda::docnames(qorp) <- korpus$status_id
+  
+  
+  ## error needs to go in this area -- !!
+  qsub1 <- quanteda::corpus_subset(qorp, 
+                                   grepl(search,   
+                                         quanteda::texts(qorp),
+                                         ignore.case = T))
+  
+  removeModal()
+  shiny::validate(shiny::need(length(qsub1) > 0 , 
+                              message = "Search is poorly!!"))
+  ## message does not display -- 
+  
+      splits <- strsplit(search, '\\|')[[1]]
+      
+      srs <- lapply(splits, function(x) { 
+        
+        quanteda::kwic(qsub1, 
+                       quanteda::phrase(search_better(x)), 
+                       valuetype = "regex",
+                       case_insensitive = T,
+                       window = windy)
+      })
+    
+      names(srs) <- splits
+      # removeModal()
+      results <- srs %>% 
+        data.table::rbindlist() %>%
+        left_join(quanteda::docvars(qorp), 
+                  by = c('docname' = 'status_id')) 
+      
+      list('results' = results, 'qorp' = qorp, 'korpus' = korpus)
+      
+      # }
+})
+```
+
+
+
+
+```{r}
+## output search in context and search results counts -- 
+observeEvent(input$ui_enter, {
+  
+  results1 <- results()$results %>%
+    mutate(context = paste0(pre, 
+                            ' <span style="background-color:#dae2ba">',
+                            keyword,
+                            '</span> ',
+                            post)) %>%
+    select(created_at, docname, keyword, context)
+    
+  ## contexts --
+  output$search_results <- renderDataTable(
+    results1,
+    escape = F,
+    options = list(pageLength = 8, 
+                  lengthMenu = c(1, 2, 4, 8), 
+                  rownames = FALSE))
+  
+  ## counts --
+  x <- results()$results %>% 
+    group_by(pattern, keyword) %>%
+    summarize(n = n()) %>%
+    ungroup() %>%
+    arrange(desc(n))
+      
+  output$freqs <- renderDataTable(
+    x, options = list(pageLength = 15, 
+                  lengthMenu = c(5, 10, 15), 
+                  rownames = FALSE)) 
+})
+```
+
+
+
+### Overall frequencies
+
+```{r}
+h3('Instructions')
+dataTableOutput(outputId = "freqs")
+```
+
+
+
+
+### Historical frequencies
+
+```{r}
+radioButtons(inputId = "pattern", 
+             label = 'Form', 
+             choices = c('pattern', 'keyword'))
+             
+radioButtons(inputId = "time", 
+             label = 'Time', 
+             choices = c('daily_n', 'weekly_n'))
+
+plotly::plotlyOutput(outputId = 'plot') #height = '400px'
+```
+
+
+
+```{r}
+## historical freqs by user input parameters -- 
+observeEvent(c(input$pattern, input$time, input$ui_enter), {
+
+  korpus <- results()$korpus
+  qorp <- results()$qorp
+  results <- results()$results
+  
+  denoms <- korpus %>% 
+    group_by(created_at) %>%
+    summarize(daily_n = n()) %>%
+    mutate(year = format(created_at, "%Y")) %>%
+    group_by(year) %>% ## format(corp$created_at, "%Y-%m"))
+    mutate(week = lubridate::week(created_at)) %>%
+    group_by(year, week) %>%
+    mutate(week_ending = max(created_at),
+           weekly_n = sum(daily_n)) %>%
+    ungroup()
+  
+  sum <- results %>% 
+    # left_join(quanteda::docvars(qorp), 
+    #           by = c('docname' = 'status_id')) %>%
+    group_by(pattern, keyword, created_at) %>%
+    summarize(n_tweets = n())  %>%
+    left_join(denoms)
+
+
+  if (input$time == 'weekly_n') {cs <- c('week_ending', 'weekly_n')} else{
+    cs <- c('created_at', 'daily_n')}
+  
+  fofig <-sum[, c(input$pattern, cs, 'n_tweets')]
+  colnames(fofig) <- c('form', 'date', 'denom', 'num')
+    
+    sq <- denoms %>%
+      select(created_at, week_ending)%>%
+      unique() %>%
+      filter(created_at > min(sum$created_at) & 
+               created_at < max(sum$created_at))
+  
+  if (input$time == 'weekly_n') {
+    fofig <- fofig %>%
+      group_by(form, date, denom) %>%
+      summarize(num = sum(num)) %>%
+      ungroup()
+    dates <- unique(sq$week_ending)
+  }  else{
+    dates <- sq$created_at}
+  
+  fofig1 <- fofig %>%
+    mutate(per_k = round(num/denom *1000, 2)) %>%
+    complete(form, date = dates) %>%
+    arrange(desc(date)) %>%
+    unique()
+  
+  fig <- plotly::plot_ly(data = fofig1, 
+                         x = ~date, 
+                         y = ~ per_k, 
+                         color = ~form, 
+                         type = 'scatter',
+                         mode = 'lines') 
+  
+  output$plot <- plotly::renderPlotly(
+  fig %>% 
+    plotly::layout(
+      xaxis = list(title = ''), 
+      yaxis = list (title = "Tweets per 1K"),
+      legend = list(orientation = 'h'),
+      title = paste0(input$pattern, ' & ', input$time ),
+      height = '500px') )
+
+  })
+```
+
+
+
+

@@ -7,7 +7,3 @@ A collection of Twitter + US Lawmaker resources.  Three ...
 2. Tweet corpus + Tweet IDs; and
 
 3. Flex-dashboard application for context-based corpus search.
-
-
-
-
