@@ -1,27 +1,6 @@
 Twitter handles: US Lawmakers
 -----------------------------
 
-    A general note: a simple call to some Twitter-list (1) may/may not include all lawmakers, (2) does not make relevant distinctions between office and campaign accounts, eg, and (3) does not help us get back to other data sets -- ie, no useful meta --
-
-``` r
-library(tidyverse)
-```
-
-    ## ── Attaching packages ─────────────────────────────────── tidyverse 1.3.0 ──
-
-    ## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-    ## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
-    ## ✓ tidyr   1.1.1     ✓ stringr 1.4.0
-    ## ✓ readr   1.3.1     ✓ forcats 0.5.0
-
-    ## ── Conflicts ────────────────────────────────────── tidyverse_conflicts() ──
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
-
-``` r
-ldir <- '/home/jtimm/jt_work/GitHub/twitter_corpus/accounts'
-```
-
 *Tweets of Congress* (TOC) handles – Available @
 <a href="https://github.com/alexlitel/congresstweets" class="uri">https://github.com/alexlitel/congresstweets</a>
 –
@@ -132,5 +111,5 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born, nominate_dim1)
 ```
 
-    ## [1] "/tmp/RtmpHrvw3G/HS115_members.csv"
-    ## [1] "/tmp/RtmpHrvw3G/HS116_members.csv"
+    ## [1] "/tmp/RtmpYnx1Ey/HS115_members.csv"
+    ## [1] "/tmp/RtmpYnx1Ey/HS116_members.csv"
