@@ -67,16 +67,11 @@ tweets_of_congress <- toc_accounts$accounts %>%
 GWU Twitter handles
 -------------------
 
-*GWU* handles – which are included as part of the *Harvard Dataverse* –
-
--   Per Harvard stamp, this is the most defensible collection of
-    twitter-handles.
-
--   GWU accounts are made available by congress and chamber, so we have
-    access to this data, which TOC lacks
-
--   Final twitter-handle data set, then:: GWU handles, with a TOC join -
-    which gets us to bioguide\_id’s
+The GWU Twitter handle list is the source of handles for our Twitter
+corpus. It also breaks down lawmaker handles by chamber & congress (by
+virtue of having separate meta data for each), which the TOC does not.
+So, we extract these details from GWU, and combine the two data sets
+(via Twitter handle).
 
 ``` r
 setwd(ldir)
@@ -101,8 +96,6 @@ gwu_accounts <- lapply(1:length(gfiles), function(x) {
 Full Twitter list
 -----------------
 
-*ADD"* TOC meta/bioguide\_id to GWU twitter-handle table –
-
 ``` r
 full <- gwu_accounts %>% 
   left_join(tweets_of_congress) %>%
@@ -112,15 +105,6 @@ full <- gwu_accounts %>%
   filter(!(n == 2 & handle_type == 'prev_names')) %>%
   select(-n) %>%
   na.omit()
-```
-
-``` r
-setwd('/home/jtimm/jt_work/GitHub/twitter-and-us-lawmakers/data')
-dta <- read.csv('lawmaker-twitter-handles.csv')
-```
-
-``` r
-dta %>% slice(1:10) %>% knitr::kable()
 ```
 
 |  congress| chamber | screen\_name     | bioguide\_id | member             | account\_type | handle\_type |
