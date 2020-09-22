@@ -1,3 +1,6 @@
+Twitter Corpus
+==============
+
 Corpus composition
 ------------------
 
@@ -22,7 +25,10 @@ be used in subsequent congresses. From this perspective, then, we only
 use the GWU tweet sets to get caught up on the congressional tweet
 collection.
 
-### Descriptives
+Descriptives
+------------
+
+### Thoughts
 
 Some important trends. Some (potential) explanations:
 
@@ -54,11 +60,7 @@ xsum2 <- xsum1 %>%
             ave = round(tokens/tweets, 1)) %>%
   mutate(tweets = formatC(tweets, big.mark = ','),
          tokens = formatC(tokens, big.mark = ','))
-```
 
-    ## `summarise()` regrouping output by 'congress' (override with `.groups` argument)
-
-``` r
 xsum2 %>% knitr::kable()
 ```
 
@@ -69,6 +71,8 @@ xsum2 %>% knitr::kable()
 |       115| 2019 | 507     | 13,610     |  267|  26.8|
 |       116| 2019 | 354,711 | 12,367,502 |  894|  34.9|
 |       116| 2020 | 291,763 | 10,333,505 |  903|  35.4|
+
+### Historical counts
 
 ``` r
 xsum1 %>%
