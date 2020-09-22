@@ -96,6 +96,8 @@ gwu_accounts <- lapply(1:length(gfiles), function(x) {
 Full Twitter list
 -----------------
 
+A small sample of the new Twitter handle data set is presented below.
+
 ``` r
 full <- gwu_accounts %>% 
   left_join(tweets_of_congress) %>%
