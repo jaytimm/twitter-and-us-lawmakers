@@ -29,8 +29,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born, nominate_dim1)
 ```
 
-    ## [1] "/tmp/Rtmp0EQvws/HS115_members.csv"
-    ## [1] "/tmp/Rtmp0EQvws/HS116_members.csv"
+    ## [1] "/tmp/RtmpAIeIVe/HS115_members.csv"
+    ## [1] "/tmp/RtmpAIeIVe/HS116_members.csv"
 
 Plus tweets
 -----------
@@ -60,3 +60,8 @@ full %>%
 | SPEAKERPELOSI  | P000197      | PELOSI, Nancy          | CA            |              12| Democratic Party |
 | REPTIMBURCHETT | B001309      | BURCHETT, Timothy      | TN            |               2| Republican Party |
 | REPMCEACHIN    | M001200      | MCEACHIN, Aston Donald | VA            |               4| Democratic Party |
+
+Election returns & census data
+------------------------------
+
+Via state abbreviation and district number.
