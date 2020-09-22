@@ -29,10 +29,11 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born, nominate_dim1)
 ```
 
-    ## [1] "/tmp/RtmpdeH9yn/HS115_members.csv"
-    ## [1] "/tmp/RtmpdeH9yn/HS116_members.csv"
+    ## [1] "/tmp/Rtmp0EQvws/HS115_members.csv"
+    ## [1] "/tmp/Rtmp0EQvws/HS116_members.csv"
 
-### Plus tweets
+Plus tweets
+-----------
 
 ``` r
 full <- handles %>%
