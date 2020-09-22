@@ -1,16 +1,24 @@
 Twitter handles for US lawmakers
 --------------------------------
 
-[Twitter
-handles](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles.csv):
+Finding a definitive list (?) of Twitter handles for US lawmakers in a
+given congress is not always straightforward. And aligning handles with
+congressional districts or some legislator identification ID can become
+challenging as well – as names are useless.
 
-*Tweets of Congress* (TOC) handles – Available @
-<a href="https://github.com/alexlitel/congresstweets" class="uri">https://github.com/alexlitel/congresstweets</a>
-–
+[Twitter handle data
+set](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles.csv)
 
--   TOC contains lawmakers from both chambers for both 115/116
-    congresses; BUT these distinctions are not made in the data set.
-    Neither chamber nor congress – so, we have to do this manually –
+### Tweets of Congress
+
+The [Tweets of Congress
+(TOC)](https://github.com/alexlitel/congresstweets) project makes
+available a fantastic list of Twitter handles for US lawmakers that is
+basically **the definitive list**. Some notes on its
+composition/utility:
+
+-   Lawmakers from both chambers & both congresses (115 + 116) are
+    include; however, these distinctions are not made in the data set;
 
 -   TOC also contains caucus-, committee- & party-related handles (in
     TYPE column), which is cool, but which we do not need/use here.
@@ -20,7 +28,7 @@ handles](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/la
     important & methodologically useful – a distinction folks do not
     seem to acknowledge or address –
 
--   TOS contains `bioguid_id` column – which is super-valuable, as it
+-   TOS contains `bioguide_id` column – which is super-valuable, as it
     gets us back to all other meta/data sets, and ultimately the reason
     why we incorporate this resource at all at this point – !!
 
@@ -53,8 +61,10 @@ tweets_of_congress <- toc_accounts$accounts %>%
                values_to = "screen_name") %>%
   filter(screen_name != 'NULL')  %>%
   left_join(ids) %>%
-  select(bioguide_id, member, account_type, handle_type, screen_name)
+  select(bioguide_id, member, account_type, handle_type, screen_name) 
 ```
+
+### GWU Twitter handles
 
 *GWU* handles – which are included as part of the *Harvard Dataverse* –
 
@@ -83,6 +93,8 @@ gwu_accounts <- lapply(1:length(gfiles), function(x) {
   mutate(screen_name = toupper(Token)) %>%
   select(congress, chamber, screen_name)
 ```
+
+### Full Twitter list
 
 *ADD"* TOC meta/bioguide\_id to GWU twitter-handle table –
 
