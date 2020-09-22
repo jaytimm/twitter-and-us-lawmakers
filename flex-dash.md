@@ -1,8 +1,10 @@
-flexdash-tweet-search
----------------------
+Twitter corpus search
+=====================
 
-A `flexdashboard` for searching a Twitter corpus for lexical patterns in
-context. A quick & simple exploration tool.
+A
+[shiny/flexdashboard](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/app/flexdash-tweet-search.Rmd)
+for searching a Twitter corpus for lexical patterns in context. A quick
+& simple exploration tool.
 
 <img src="images/title.png" width="100%"/>
 
