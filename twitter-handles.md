@@ -1,5 +1,7 @@
 Twitter handles for US lawmakers
---------------------------------
+================================
+
+2020-09-21
 
 Finding a definitive list (?) of Twitter handles for US lawmakers in a
 given congress is not always straightforward. And aligning handles with
@@ -9,7 +11,8 @@ challenging as well – as names are useless.
 [Twitter handle data
 set](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles.csv)
 
-### Tweets of Congress
+Tweets of Congress
+------------------
 
 The [Tweets of Congress
 (TOC)](https://github.com/alexlitel/congresstweets) project makes
@@ -41,9 +44,9 @@ setwd(ldir)
 toc_accounts <- 
   jsonlite::fromJSON('historical-users-filtered.json') %>% 
   filter(type == 'member')
+```
 
-
-###
+``` r
 ids <- data.frame(member = toc_accounts$name,
                   bioguide_id = toc_accounts$id$bioguide)
 
@@ -64,7 +67,8 @@ tweets_of_congress <- toc_accounts$accounts %>%
   select(bioguide_id, member, account_type, handle_type, screen_name) 
 ```
 
-### GWU Twitter handles
+GWU Twitter handles
+-------------------
 
 *GWU* handles – which are included as part of the *Harvard Dataverse* –
 
@@ -82,8 +86,11 @@ setwd(ldir)
 gfiles <- list.files(path = ldir, 
                      pattern = "csv", 
                      recursive = TRUE) 
+
 cs <- gsub('(^.*congress)(...)(.*$)', '\\2', gfiles)
-ss <- stringr::str_to_title(gsub('(^.*[0-9]-)(.*)(-accounts.*$)', '\\2', gfiles))
+ss <- stringr::str_to_title(
+  gsub('(^.*[0-9]-)(.*)(-accounts.*$)', '\\2', gfiles)
+  )
 
 gwu_accounts <- lapply(1:length(gfiles), function(x) {
   read.csv(gfiles[x]) %>% mutate(congress = cs[x],
@@ -94,7 +101,8 @@ gwu_accounts <- lapply(1:length(gfiles), function(x) {
   select(congress, chamber, screen_name)
 ```
 
-### Full Twitter list
+Full Twitter list
+-----------------
 
 *ADD"* TOC meta/bioguide\_id to GWU twitter-handle table –
 
