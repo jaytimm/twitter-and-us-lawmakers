@@ -67,11 +67,10 @@ tweets_of_congress <- toc_accounts$accounts %>%
 GWU Twitter handles
 -------------------
 
-The GWU Twitter handle list is the source of handles for our Twitter
-corpus. It also breaks down lawmaker handles by chamber & congress (by
-virtue of having separate meta data for each), which the TOC does not.
-So, we extract these details from GWU, and combine the two data sets
-(via Twitter handle).
+GWU breaks down lawmaker handles by chamber & congress (by virtue of
+having separate metadata for each), which the TOC does not. So, we
+extract these details from GWU, and combine the two data sets (via
+Twitter handle).
 
 ``` r
 setwd(ldir)
