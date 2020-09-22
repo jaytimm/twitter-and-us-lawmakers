@@ -1,12 +1,7 @@
 Twitter handles for US lawmakers
 ================================
 
-2020-09-21
-
-Finding a definitive list (?) of Twitter handles for US lawmakers in a
-given congress is not always straightforward. And aligning handles with
-congressional districts or some legislator identification ID can become
-challenging as well – as names are useless.
+2020-09-22
 
 [Twitter handle data
 set](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles.csv)
@@ -16,37 +11,39 @@ Tweets of Congress
 
 The [Tweets of Congress
 (TOC)](https://github.com/alexlitel/congresstweets) project makes
-available a fantastic list of Twitter handles for US lawmakers that is
-basically **the definitive list**. Some notes on its
-composition/utility:
+available a fantastic list of Twitter handles for US lawmakers. Some
+notes on its composition/utility:
 
 -   Lawmakers from both chambers & both congresses (115 + 116) are
-    include; however, these distinctions are not made in the data set;
+    included; these distinctions, however, are not made in the data set.
 
--   TOC also contains caucus-, committee- & party-related handles (in
-    TYPE column), which is cool, but which we do not need/use here.
+-   While not utilized here, the TOC handle list includes caucus-,
+    committee- & party-related handles.
 
--   A distinction is also made between account types: campaign & office
-    – the latter, importantly, funded by taxpayers – which I think is
-    important & methodologically useful – a distinction folks do not
-    seem to acknowledge or address –
+-   The list includes handles for both campaign & office accounts (the
+    latter, importantly, funded by taxpayers). This distinction is
+    generally not addressed from a methods perspective and, worse, the
+    two are often confounded.
 
--   TOS contains `bioguide_id` column – which is super-valuable, as it
-    gets us back to all other meta/data sets, and ultimately the reason
-    why we incorporate this resource at all at this point – !!
+-   The data set identifies each lawmaker by their Bioguide ID – a
+    fairly common legislator identifier – which allows us to cross
+    Twitter details to other data sets without having to make manual
+    edits.
 
--   TOC contains “previous” twitter-handles as well – I do not know
-    exactly what this means, but we include such handles, and preserve
-    the distinction –
+-   The list also accounts for screen name changes.
+
+------------------------------------------------------------------------
+
+The json file is available on Git Hub
+[here](https://github.com/alexlitel/congresstweets-automator/blob/master/data/historical-users-filtered.json).
+The code below details the json extraction process.
 
 ``` r
 setwd(ldir)
 toc_accounts <- 
   jsonlite::fromJSON('historical-users-filtered.json') %>% 
   filter(type == 'member')
-```
 
-``` r
 ids <- data.frame(member = toc_accounts$name,
                   bioguide_id = toc_accounts$id$bioguide)
 
