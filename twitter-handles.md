@@ -30,7 +30,7 @@ notes on its composition/utility:
     Twitter details to other data sets without having to make manual
     edits.
 
--   The list also accounts for screen name changes.
+-   The list also accounts for any changes in Twitter handles.
 
 ------------------------------------------------------------------------
 
