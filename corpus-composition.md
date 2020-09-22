@@ -23,3 +23,74 @@ use the GWU tweet sets to get caught up on the congressional tweet
 collection.
 
 ### Descriptives
+
+Some important trends. Some (potential) explanations:
+
+1.  Average length of tweets (in words) increased substantially from
+    2017 to 2018; presumably a result of Twitter’s increased character
+    limit from 140 to 280 at the end of 2017.
+
+2.  Total number of Twitter lawmaker accounts roughly doubled from the
+    115th congress to the 116th. Without any real effects on the number
+    of total tweets from 115 to 116. The folks at GWU included
+    “auxiliary” accounts for members in the 116th Twitter scrape, eg,
+    both “office” & “campaign” accounts.
+
+It is not clear if this is per some methodological change on the part of
+GWU, or a result of more lawmakers in 116 using more than one account.
+
+``` r
+korpus <- load_lawmaker_tweets()
+
+xsum1 <- korpus %>%
+  mutate(tokens = tokenizers::count_words(text),
+         yr = gsub('-.*', '', created_at))
+
+xsum2 <- xsum1 %>%
+  group_by(congress, yr) %>%
+  summarise(tweets = n(),
+            tokens = sum(tokens),
+            ers = length(unique(toupper(screen_name))),
+            ave = round(tokens/tweets, 1)) %>%
+  mutate(tweets = formatC(tweets, big.mark = ','),
+         tokens = formatC(tokens, big.mark = ','))
+```
+
+    ## `summarise()` regrouping output by 'congress' (override with `.groups` argument)
+
+``` r
+xsum2 %>% knitr::kable()
+```
+
+|  congress| yr   | tweets  | tokens     |  ers|   ave|
+|---------:|:-----|:--------|:-----------|----:|-----:|
+|       115| 2017 | 382,281 | 8,101,282  |  513|  21.2|
+|       115| 2018 | 326,864 | 10,606,772 |  510|  32.5|
+|       115| 2019 | 507     | 13,610     |  267|  26.8|
+|       116| 2019 | 354,711 | 12,367,502 |  894|  34.9|
+|       116| 2020 | 291,763 | 10,333,505 |  903|  35.4|
+
+``` r
+xsum1 %>%
+  group_by(congress, yr, created_at) %>%
+  summarise(tweets = n(),
+            tokens = sum(tokens),
+            ers = length(unique(screen_name))) %>%
+  ungroup() %>%
+  mutate(moving_n = zoo::rollmean(tweets, 
+                                  k = 60, 
+                                  fill = NA)) %>%
+  ggplot() +
+  geom_line(aes(x = created_at, 
+                y = tweets)) +
+  
+    geom_line(aes(x = created_at,
+                y = moving_n),
+            color = 'steelblue',
+            #linetype = 2,
+            size = 0.75) +
+  theme_bw() +
+  ggtitle('Daily tweets: US Congresses 115 & 116')
+```
+
+![](corpus-composition_files/figure-markdown_github/unnamed-chunk-3-1.png)
