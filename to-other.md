@@ -1,11 +1,11 @@
 Aligning data sets
 ==================
 
-2020-09-21
+2020-09-22
 
 ``` r
 library(tidyverse)
-setwd('/home/jtimm/jt_work/GitHub/twitter-and-us-lawmakers/data')
+setwd(ldir)
 handles <- read.csv('lawmaker-twitter-handles.csv')
 ```
 
@@ -21,7 +21,7 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   distinct() %>%
   filter(chamber != 'President') %>%
   mutate(
-    party_name = case_when(party_code == '100' ~ 'Deomcratic Party',
+    party_name = case_when(party_code == '100' ~ 'Democratic Party',
                            party_code == '200' ~ 'Republican Party',
                            party_code == '328' ~ 'Independent')) %>%
   select(bioguide_id, congress:chamber, 
@@ -29,8 +29,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born, nominate_dim1)
 ```
 
-    ## [1] "/tmp/Rtmp7TtobH/HS115_members.csv"
-    ## [1] "/tmp/Rtmp7TtobH/HS116_members.csv"
+    ## [1] "/tmp/RtmpdeH9yn/HS115_members.csv"
+    ## [1] "/tmp/RtmpdeH9yn/HS116_members.csv"
 
 ### Plus tweets
 
@@ -53,9 +53,9 @@ full %>%
 | screen\_name   | bioguide\_id | bioname                | state\_abbrev |  district\_code| party\_name      |
 |:---------------|:-------------|:-----------------------|:--------------|---------------:|:-----------------|
 | REPROSSSPANO   | S001210      | SPANO, Ross            | FL            |              15| Republican Party |
-| REPANNAESHOO   | E000215      | ESHOO, Anna Georges    | CA            |              18| Deomcratic Party |
-| REPHORSFORD    | H001066      | HORSFORD, Steven       | NV            |               4| Deomcratic Party |
+| REPANNAESHOO   | E000215      | ESHOO, Anna Georges    | CA            |              18| Democratic Party |
+| REPHORSFORD    | H001066      | HORSFORD, Steven       | NV            |               4| Democratic Party |
 | REPJOHNJOYCE   | J000302      | JOYCE, John            | PA            |              13| Republican Party |
-| SPEAKERPELOSI  | P000197      | PELOSI, Nancy          | CA            |              12| Deomcratic Party |
+| SPEAKERPELOSI  | P000197      | PELOSI, Nancy          | CA            |              12| Democratic Party |
 | REPTIMBURCHETT | B001309      | BURCHETT, Timothy      | TN            |               2| Republican Party |
-| REPMCEACHIN    | M001200      | MCEACHIN, Aston Donald | VA            |               4| Deomcratic Party |
+| REPMCEACHIN    | M001200      | MCEACHIN, Aston Donald | VA            |               4| Democratic Party |
