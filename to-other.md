@@ -1,13 +1,16 @@
+Aligning data sets
+==================
+
+2020-09-21
+
 ``` r
 library(tidyverse)
 setwd('/home/jtimm/jt_work/GitHub/twitter-and-us-lawmakers/data')
-dta <- read.csv('lawmaker-twitter-handles.csv')
+handles <- read.csv('lawmaker-twitter-handles.csv')
 ```
 
-To VoteView –
--------------
-
-Simple Vote-View build –
+VoteView – DW-NOMINATE
+----------------------
 
 ``` r
 vv_meta <- lapply(c('115', '116'), function(x) {
@@ -26,5 +29,33 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born, nominate_dim1)
 ```
 
-    ## [1] "/tmp/RtmpuNb1S9/HS115_members.csv"
-    ## [1] "/tmp/RtmpuNb1S9/HS116_members.csv"
+    ## [1] "/tmp/Rtmp7TtobH/HS115_members.csv"
+    ## [1] "/tmp/Rtmp7TtobH/HS116_members.csv"
+
+### Plus tweets
+
+``` r
+full <- handles %>%
+  left_join(vv_meta)
+
+set.seed(99)
+full %>%
+  filter(chamber == 'House' & account_type == 'office' &
+           handle_type == 'screen_name' &
+           congress == '116') %>%
+  select(screen_name, bioguide_id, bioname, 
+         state_abbrev, 
+         district_code, party_name) %>%
+  sample_n(7) %>%
+  knitr::kable()
+```
+
+| screen\_name   | bioguide\_id | bioname                | state\_abbrev |  district\_code| party\_name      |
+|:---------------|:-------------|:-----------------------|:--------------|---------------:|:-----------------|
+| REPROSSSPANO   | S001210      | SPANO, Ross            | FL            |              15| Republican Party |
+| REPANNAESHOO   | E000215      | ESHOO, Anna Georges    | CA            |              18| Deomcratic Party |
+| REPHORSFORD    | H001066      | HORSFORD, Steven       | NV            |               4| Deomcratic Party |
+| REPJOHNJOYCE   | J000302      | JOYCE, John            | PA            |              13| Republican Party |
+| SPEAKERPELOSI  | P000197      | PELOSI, Nancy          | CA            |              12| Deomcratic Party |
+| REPTIMBURCHETT | B001309      | BURCHETT, Timothy      | TN            |               2| Republican Party |
+| REPMCEACHIN    | M001200      | MCEACHIN, Aston Donald | VA            |               4| Deomcratic Party |
