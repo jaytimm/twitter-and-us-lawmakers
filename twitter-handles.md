@@ -1,13 +1,12 @@
-Twitter handles: US Lawmakers
------------------------------
+Twitter handles for US lawmakers
+--------------------------------
+
+[Twitter
+handles](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles.csv):
 
 *Tweets of Congress* (TOC) handles – Available @
 <a href="https://github.com/alexlitel/congresstweets" class="uri">https://github.com/alexlitel/congresstweets</a>
 –
-
--   We do not use any of the tweet sets TOC make available – which
-    starts at June 2017, ie, half-way through the first session of
-    congress 115 –
 
 -   TOC contains lawmakers from both chambers for both 115/116
     congresses; BUT these distinctions are not made in the data set.
@@ -35,6 +34,8 @@ toc_accounts <-
   jsonlite::fromJSON('historical-users-filtered.json') %>% 
   filter(type == 'member')
 
+
+###
 ids <- data.frame(member = toc_accounts$name,
                   bioguide_id = toc_accounts$id$bioguide)
 
@@ -60,22 +61,34 @@ tweets_of_congress <- toc_accounts$accounts %>%
 -   Per Harvard stamp, this is the most defensible collection of
     twitter-handles.
 
--   We use the GWU *tweet-set* for congress 115 and for congress 116 up
-    until 5/2020, where GWU stops –
-
--   So, we update our tweet-set via `rtweet` using the same
-    twitter-handles that seed GWU tweet-set –
-
 -   GWU accounts are made available by congress and chamber, so we have
-    access to this data, which TOC lacks –
+    access to this data, which TOC lacks
 
 -   Final twitter-handle data set, then:: GWU handles, with a TOC join -
     which gets us to bioguide\_id’s
 
+``` r
+setwd(ldir)
+gfiles <- list.files(path = ldir, 
+                     pattern = "csv", 
+                     recursive = TRUE) 
+cs <- gsub('(^.*congress)(...)(.*$)', '\\2', gfiles)
+ss <- stringr::str_to_title(gsub('(^.*[0-9]-)(.*)(-accounts.*$)', '\\2', gfiles))
+
+gwu_accounts <- lapply(1:length(gfiles), function(x) {
+  read.csv(gfiles[x]) %>% mutate(congress = cs[x],
+                                 chamber = as.character(ss[x])) 
+  } ) %>% 
+  data.table::rbindlist() %>%
+  mutate(screen_name = toupper(Token)) %>%
+  select(congress, chamber, screen_name)
+```
+
 *ADD"* TOC meta/bioguide\_id to GWU twitter-handle table –
 
 ``` r
-full <- gwu_accounts %>% left_join(tweets_of_congress) %>%
+full <- gwu_accounts %>% 
+  left_join(tweets_of_congress) %>%
   group_by(screen_name) %>%
   mutate(n = n()) %>%
   ungroup() %>%
@@ -84,32 +97,24 @@ full <- gwu_accounts %>% left_join(tweets_of_congress) %>%
   na.omit()
 ```
 
-*Lastly: re adding information from the VoteView* –
-
 ``` r
-# Package is designed with two predominant use-cases in mind --
-#   (1) Returns & ideology, &
-#   (2) Returns & Twitter --
-# in other words, align election returns, tweets, and VoteView --
+setwd('/home/jtimm/jt_work/GitHub/twitter-and-us-lawmakers/data')
+dta <- read.csv('lawmaker-twitter-handles.csv')
 ```
 
-Simple Vote-View build –
-
 ``` r
-vv_meta <- lapply(c('115', '116'), function(x) {
-  Rvoteview::download_metadata(congress = x, 
-                               type = 'members', 
-                               chamber = 'both')} )  %>%
-  data.table::rbindlist() %>%
-  distinct() %>%
-  filter(chamber != 'President') %>%
-  mutate(party_name = case_when(party_code == '100' ~ 'Deomcratic Party',
-                                party_code == '200' ~ 'Republican Party',
-                                party_code == '328' ~ 'Independent')) %>%
-  select(bioguide_id, congress:chamber, 
-         state_abbrev, district_code, bioname, 
-         party_name, born, nominate_dim1)
+dta %>% slice(1:10) %>% knitr::kable()
 ```
 
-    ## [1] "/tmp/RtmpYnx1Ey/HS115_members.csv"
-    ## [1] "/tmp/RtmpYnx1Ey/HS116_members.csv"
+|  congress| chamber | screen\_name     | bioguide\_id | member             | account\_type | handle\_type |
+|---------:|:--------|:-----------------|:-------------|:-------------------|:--------------|:-------------|
+|       115| House   | KYCOMER          | C001108      | James Comer        | campaign      | prev\_names  |
+|       115| House   | REPJACKYROSEN    | R000608      | Jacky Rosen        | office        | prev\_names  |
+|       115| House   | REPESPAILLAT     | E000297      | Adriano Espaillat  | office        | screen\_name |
+|       115| House   | REPTREY          | H001074      | Trey Hollingsworth | office        | screen\_name |
+|       115| House   | REPDWIGHTEVANS   | E000296      | Dwight Evans       | office        | screen\_name |
+|       115| House   | ROGERMARSHALLMD  | M001198      | Roger Marshall     | campaign      | screen\_name |
+|       115| House   | USREPLONG        | L000576      | Billy Long         | office        | screen\_name |
+|       115| House   | REPBYRNE         | B001289      | Bradley Byrne      | office        | screen\_name |
+|       115| House   | ROBERT\_ADERHOLT | A000055      | Robert Aderholt    | office        | screen\_name |
+|       115| House   | USREPGARYPALMER  | P000609      | Gary Palmer        | office        | screen\_name |
