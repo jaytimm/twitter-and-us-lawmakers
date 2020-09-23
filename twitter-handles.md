@@ -142,8 +142,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/RtmpeCJwAq/HS115_members.csv"
-    ## [1] "/tmp/RtmpeCJwAq/HS116_members.csv"
+    ## [1] "/tmp/RtmpFQPqMV/HS115_members.csv"
+    ## [1] "/tmp/RtmpFQPqMV/HS116_members.csv"
 
 **Via the Biodguide identifier**, we can easily add these details to our
 GWU/TOC Twitter list.
@@ -151,11 +151,7 @@ GWU/TOC Twitter list.
 ``` r
 full <- handles %>%
   left_join(vv_meta)
-```
 
-    ## Joining, by = c("congress", "chamber", "bioguide_id")
-
-``` r
 full %>% head()
 ```
 
