@@ -72,124 +72,14 @@ handles %>%
   knitr::kable()
 ```
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 7%" />
-<col style="width: 11%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 8%" />
-<col style="width: 19%" />
-<col style="width: 9%" />
-<col style="width: 2%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">congress</th>
-<th style="text-align: left;">chamber</th>
-<th style="text-align: left;">screen_name</th>
-<th style="text-align: left;">bioguide_id</th>
-<th style="text-align: left;">member</th>
-<th style="text-align: left;">account_type</th>
-<th style="text-align: left;">handle_type</th>
-<th style="text-align: left;">state_abbrev</th>
-<th style="text-align: right;">district_code</th>
-<th style="text-align: left;">bioname</th>
-<th style="text-align: left;">party_name</th>
-<th style="text-align: right;">born</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">115</td>
-<td style="text-align: left;">House</td>
-<td style="text-align: left;">KYCOMER</td>
-<td style="text-align: left;">C001108</td>
-<td style="text-align: left;">James Comer</td>
-<td style="text-align: left;">campaign</td>
-<td style="text-align: left;">prev_names</td>
-<td style="text-align: left;">KY</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">COMER, James</td>
-<td style="text-align: left;">Republican Party</td>
-<td style="text-align: right;">1972</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">115</td>
-<td style="text-align: left;">House</td>
-<td style="text-align: left;">REPJACKYROSEN</td>
-<td style="text-align: left;">R000608</td>
-<td style="text-align: left;">Jacky Rosen</td>
-<td style="text-align: left;">office</td>
-<td style="text-align: left;">prev_names</td>
-<td style="text-align: left;">NV</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">ROSEN, Jacklyn Sheryl</td>
-<td style="text-align: left;">Democratic Party</td>
-<td style="text-align: right;">1957</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">115</td>
-<td style="text-align: left;">House</td>
-<td style="text-align: left;">REPESPAILLAT</td>
-<td style="text-align: left;">E000297</td>
-<td style="text-align: left;">Adriano Espaillat</td>
-<td style="text-align: left;">office</td>
-<td style="text-align: left;">screen_name</td>
-<td style="text-align: left;">NY</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">ESPAILLAT, Adriano J.</td>
-<td style="text-align: left;">Democratic Party</td>
-<td style="text-align: right;">1954</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">115</td>
-<td style="text-align: left;">House</td>
-<td style="text-align: left;">REPTREY</td>
-<td style="text-align: left;">H001074</td>
-<td style="text-align: left;">Trey Hollingsworth</td>
-<td style="text-align: left;">office</td>
-<td style="text-align: left;">screen_name</td>
-<td style="text-align: left;">IN</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">HOLLINGSWORTH, Joseph Albert III</td>
-<td style="text-align: left;">Republican Party</td>
-<td style="text-align: right;">1983</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">115</td>
-<td style="text-align: left;">House</td>
-<td style="text-align: left;">REPDWIGHTEVANS</td>
-<td style="text-align: left;">E000296</td>
-<td style="text-align: left;">Dwight Evans</td>
-<td style="text-align: left;">office</td>
-<td style="text-align: left;">screen_name</td>
-<td style="text-align: left;">PA</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">EVANS, Dwight</td>
-<td style="text-align: left;">Democratic Party</td>
-<td style="text-align: right;">1954</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">115</td>
-<td style="text-align: left;">House</td>
-<td style="text-align: left;">ROGERMARSHALLMD</td>
-<td style="text-align: left;">M001198</td>
-<td style="text-align: left;">Roger Marshall</td>
-<td style="text-align: left;">campaign</td>
-<td style="text-align: left;">screen_name</td>
-<td style="text-align: left;">KS</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">MARSHALL, Roger Wayne</td>
-<td style="text-align: left;">Republican Party</td>
-<td style="text-align: right;">1960</td>
-</tr>
-</tbody>
-</table>
+| bioguide\_id | member        | account\_type | handle\_type | screen\_name    |
+|:-------------|:--------------|:--------------|:-------------|:----------------|
+| Y000033      | Don Young     | office        | screen\_name | REPDONYOUNG     |
+| Y000033      | Don Young     | campaign      | screen\_name | DONYOUNGAK      |
+| B001289      | Bradley Byrne | campaign      | screen\_name | BRADLEYBYRNE    |
+| B001289      | Bradley Byrne | office        | screen\_name | REPBYRNE        |
+| P000609      | Gary Palmer   | campaign      | screen\_name | PALMER4ALABAMA  |
+| P000609      | Gary Palmer   | office        | screen\_name | USREPGARYPALMER |
 
 VoteView & lawmaker information
 -------------------------------
@@ -218,8 +108,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/RtmpLc5iGn/HS115_members.csv"
-    ## [1] "/tmp/RtmpLc5iGn/HS116_members.csv"
+    ## [1] "/tmp/RtmpXpmwiG/HS115_members.csv"
+    ## [1] "/tmp/RtmpXpmwiG/HS116_members.csv"
 
 **Via the Biodguide identifier**, we can easily add these details to our
 GWU/TOC Twitter list.
