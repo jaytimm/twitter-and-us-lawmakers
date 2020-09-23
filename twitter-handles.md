@@ -108,13 +108,13 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/RtmpMgIVqr/HS115_members.csv"
-    ## [1] "/tmp/RtmpMgIVqr/HS116_members.csv"
+    ## [1] "/tmp/Rtmp3l9GLu/HS115_members.csv"
+    ## [1] "/tmp/Rtmp3l9GLu/HS116_members.csv"
 
 ------------------------------------------------------------------------
 
 **Via the Biodguide identifier**, we can easily add these details to our
-GWU/TOC Twitter list.
+TOC Twitter list.
 
 ``` r
 handles %>%
