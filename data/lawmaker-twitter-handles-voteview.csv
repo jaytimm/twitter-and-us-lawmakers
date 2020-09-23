@@ -432,107 +432,107 @@
 115,"House","REPBLAINE","L000569","Blaine Luetkemeyer","office","screen_name","MO",3,"LUETKEMEYER, Blaine","Republican Party",1952
 115,"House","MIDAVETROTT","T000475","Dave Trott","office","screen_name","MI",11,"TROTT, David A.","Republican Party",1960
 115,"House","REPBROWNLEY","B001285","Julia Brownley","office","screen_name","CA",26,"BROWNLEY, Julia","Democratic Party",1952
-115,"Senate","DOUGJONES","J000300","Doug Jones","campaign","screen_name",NA,NA,NA,NA,NA
-115,"Senate","TIMKAINE","K000384","Tim Kaine","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","LINDSEYGRAHAMSC","G000359","Lindsey Graham","campaign","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBOOKER","B001288","Cory Booker","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENKAMALAHARRIS","H001075","Kamala Harris","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENORRINHATCH","H000338","Orrin Hatch","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENSANDERS","S000033","Bernie Sanders","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENTHOMTILLIS","T000476","Thom Tillis","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","JERRYMORAN","M000934","Jerry Moran","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENCAPITO","C001047","Shelley Moore Capito","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORHASSAN","H001076","Maggie Hassan","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORCARPER","C000174","Tom Carper","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","MARTINHEINRICH","H001046","Martin Heinrich","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","STEVEDAINES","D000618","Steve Daines","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENTOOMEY","T000461","Pat Toomey","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENTODDYOUNG","Y000064","Todd Young","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBILLNELSON","N000032","Bill Nelson","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJOHNBARRASSO","B001261","John Barrasso","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENMURPHYOFFICE","M001169","Chris Murphy","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORROUNDS","R000605","Mike Rounds","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","MIKECRAPO","C000880","Mike Crapo","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJOHNTHUNE","T000250","John Thune","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJOHNMCCAIN","M000303","John McCain","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORCOLLINS","C001035","Susan Collins","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","PATTYMURRAY","M001111","Patty Murray","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENFEINSTEIN","F000062","Dianne Feinstein","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","MCCASKILLOFFICE","M001170","Claire McCaskill","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENALEXANDER","A000360","Lamar Alexander","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJACKREED","R000122","Jack Reed","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","CHUCKGRASSLEY","G000386","Chuck Grassley","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENCORTEZMASTO","C001113","Catherine Cortez Masto","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENPATROBERTS","R000307","Pat Roberts","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORCARDIN","C000141","Ben Cardin","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENDEANHELLER","H001041","Dean Heller","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","RONWYDEN","W000779","Ron Wyden","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORDURBIN","D000563","Dick Durbin","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORSHAHEEN","S001181","Jeanne Shaheen","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENDUCKWORTH","D000622","Tammy Duckworth","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENWHITEHOUSE","W000802","Sheldon Whitehouse","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENTOMCOTTON","C001095","Tom Cotton","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENSHERRODBROWN","B000944","Sherrod Brown","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBOBCORKER","C001071","Bob Corker","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORTOMUDALL","U000039","Tom Udall","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","MCCONNELLPRESS","M000355","Mitch McConnell","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORLANKFORD","L000575","James Lankford","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENTEDCRUZ","C001098","Ted Cruz","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORENZI","E000285","Mike Enzi","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENGARYPETERS","P000595","Gary Peters","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","JEFFFLAKE","F000444","Jeff Flake","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORISAKSON","I000055","Johnny Isakson","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","INHOFEPRESS","I000024","Jim Inhofe","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","GRAHAMBLOG","G000359","Lindsey Graham","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENRUBIOPRESS","R000595","Marco Rubio","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENANGUSKING","K000383","Angus King","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENGILLIBRAND","G000555","Kirsten Gillibrand","campaign","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBOBCASEY","C001070","Bob Casey Jr.","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","CHRISVANHOLLEN","V000128","Chris Van Hollen","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENTHADCOCHRAN","C000567","Thad Cochran","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORBURR","B001135","Richard Burr","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENROBPORTMAN","P000449","Rob Portman","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORTESTER","T000464","Jon Tester","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORMENENDEZ","M000639","Bob Menendez","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","JOHNBOOZMAN","B001236","John Boozman","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","MAZIEHIRONO","H001042","Mazie Hirono","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SEN_JOEMANCHIN","M001183","Joe Manchin","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORFISCHER","F000463","Deb Fischer","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBENNETCO","B001267","Michael Bennet","office","prev_names",NA,NA,NA,NA,NA
-115,"Senate","SENSTABENOW","S000770","Debbie Stabenow","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENSASSE","S001197","Ben Sasse","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBRIANSCHATZ","S001194","Brian Schatz","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORRISCH","R000584","Jim Risch","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENMIKELEE","L000577","Mike Lee","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENWARREN","W000817","Elizabeth Warren","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENBLUMENTHAL","B001277","Richard Blumenthal","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENDAVIDPERDUE","P000612","David Perdue","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENFRANKEN","F000457","Al Franken","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","BILLCASSIDY","C001075","Bill Cassidy","campaign","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENCORYGARDNER","G000562","Cory Gardner","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","LISAMURKOWSKI","M001153","Lisa Murkowski","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORCANTWELL","C000127","Maria Cantwell","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORBALDWIN","B001230","Tammy Baldwin","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENDONNELLY","D000607","Joe Donnelly","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORWICKER","W000437","Roger Wicker","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","AMYKLOBUCHAR","K000367","Amy Klobuchar","campaign","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORHEITKAMP","H001069","Heidi Heitkamp","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJONIERNST","E000295","Joni Ernst","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","CHRISCOONS","C001088","Chris Coons","campaign","screen_name",NA,NA,NA,NA,NA
-115,"Senate","MARKWARNER","W000805","Mark Warner","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","JOHNCORNYN","C001056","John Cornyn","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENRONJOHNSON","J000293","Ron Johnson","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORLEAHY","L000174","Patrick Leahy","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENSCHUMER","S000148","Chuck Schumer","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJOHNKENNEDY","K000393","John Kennedy","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJEFFMERKLEY","M001176","Jeff Merkley","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","ROYBLUNT","B000575","Roy Blunt","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENSHELBY","S000320","Richard Shelby","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENJOHNHOEVEN","H001061","John Hoeven","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","RANDPAUL","P000603","Rand Paul","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENDANSULLIVAN","S001198","Dan Sullivan","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENATORTIMSCOTT","S001184","Tim Scott","office","screen_name",NA,NA,NA,NA,NA
-115,"Senate","SENMARKEY","M000133","Ed Markey","office","screen_name",NA,NA,NA,NA,NA
+115,"Senate","DOUGJONES","J000300","Doug Jones","campaign","screen_name","AL",0,"JONES, Gordon Douglas (Doug)","Democratic Party",1954
+115,"Senate","TIMKAINE","K000384","Tim Kaine","office","screen_name","VA",0,"KAINE, Timothy Michael (Tim)","Democratic Party",1958
+115,"Senate","LINDSEYGRAHAMSC","G000359","Lindsey Graham","campaign","screen_name","SC",0,"GRAHAM, Lindsey O.","Republican Party",1955
+115,"Senate","SENBOOKER","B001288","Cory Booker","office","screen_name","NJ",0,"BOOKER, Cory Anthony","Democratic Party",1969
+115,"Senate","SENKAMALAHARRIS","H001075","Kamala Harris","office","screen_name","CA",0,"HARRIS, Kamala Devi","Democratic Party",1964
+115,"Senate","SENORRINHATCH","H000338","Orrin Hatch","office","screen_name","UT",0,"HATCH, Orrin Grant","Republican Party",1934
+115,"Senate","SENSANDERS","S000033","Bernie Sanders","office","screen_name","VT",0,"SANDERS, Bernard","Independent",1941
+115,"Senate","SENTHOMTILLIS","T000476","Thom Tillis","office","screen_name","NC",0,"TILLIS, Thomas Roland (Thom)","Republican Party",1960
+115,"Senate","JERRYMORAN","M000934","Jerry Moran","office","screen_name","KS",0,"MORAN, Jerry","Republican Party",1954
+115,"Senate","SENCAPITO","C001047","Shelley Moore Capito","office","screen_name","WV",0,"CAPITO, Shelley Moore","Republican Party",1953
+115,"Senate","SENATORHASSAN","H001076","Maggie Hassan","office","screen_name","NH",0,"HASSAN, Margaret (Maggie)","Democratic Party",1958
+115,"Senate","SENATORCARPER","C000174","Tom Carper","office","screen_name","DE",0,"CARPER, Thomas Richard","Democratic Party",1947
+115,"Senate","MARTINHEINRICH","H001046","Martin Heinrich","office","screen_name","NM",0,"HEINRICH, Martin","Democratic Party",1971
+115,"Senate","STEVEDAINES","D000618","Steve Daines","office","screen_name","MT",0,"DAINES, Steve","Republican Party",1962
+115,"Senate","SENTOOMEY","T000461","Pat Toomey","office","screen_name","PA",0,"TOOMEY, Patrick Joseph","Republican Party",1961
+115,"Senate","SENTODDYOUNG","Y000064","Todd Young","office","screen_name","IN",0,"YOUNG, Todd","Republican Party",1972
+115,"Senate","SENBILLNELSON","N000032","Bill Nelson","office","screen_name","FL",0,"NELSON, Clarence William (Bill)","Democratic Party",1942
+115,"Senate","SENJOHNBARRASSO","B001261","John Barrasso","office","screen_name","WY",0,"BARRASSO, John A.","Republican Party",1952
+115,"Senate","SENMURPHYOFFICE","M001169","Chris Murphy","office","screen_name","CT",0,"MURPHY, Christopher","Democratic Party",1973
+115,"Senate","SENATORROUNDS","R000605","Mike Rounds","office","screen_name","SD",0,"ROUNDS, Marion Michael (Mike)","Republican Party",1954
+115,"Senate","MIKECRAPO","C000880","Mike Crapo","office","screen_name","ID",0,"CRAPO, Michael Dean","Republican Party",1951
+115,"Senate","SENJOHNTHUNE","T000250","John Thune","office","screen_name","SD",0,"THUNE, John","Republican Party",1961
+115,"Senate","SENJOHNMCCAIN","M000303","John McCain","office","screen_name","AZ",0,"McCAIN, John Sidney, III","Republican Party",1936
+115,"Senate","SENATORCOLLINS","C001035","Susan Collins","office","screen_name","ME",0,"COLLINS, Susan Margaret","Republican Party",1952
+115,"Senate","PATTYMURRAY","M001111","Patty Murray","office","screen_name","WA",0,"MURRAY, Patty","Democratic Party",1950
+115,"Senate","SENFEINSTEIN","F000062","Dianne Feinstein","office","screen_name","CA",0,"FEINSTEIN, Dianne","Democratic Party",1933
+115,"Senate","MCCASKILLOFFICE","M001170","Claire McCaskill","office","screen_name","MO",0,"McCASKILL, Claire","Democratic Party",1953
+115,"Senate","SENALEXANDER","A000360","Lamar Alexander","office","screen_name","TN",0,"ALEXANDER, Lamar","Republican Party",1940
+115,"Senate","SENJACKREED","R000122","Jack Reed","office","screen_name","RI",0,"REED, John F. (Jack)","Democratic Party",1949
+115,"Senate","CHUCKGRASSLEY","G000386","Chuck Grassley","office","screen_name","IA",0,"GRASSLEY, Charles Ernest","Republican Party",1933
+115,"Senate","SENCORTEZMASTO","C001113","Catherine Cortez Masto","office","screen_name","NV",0,"CORTEZ MASTO, Catherine Marie","Democratic Party",1964
+115,"Senate","SENPATROBERTS","R000307","Pat Roberts","office","screen_name","KS",0,"ROBERTS, Charles Patrick (Pat)","Republican Party",1936
+115,"Senate","SENATORCARDIN","C000141","Ben Cardin","office","screen_name","MD",0,"CARDIN, Benjamin Louis","Democratic Party",1943
+115,"Senate","SENDEANHELLER","H001041","Dean Heller","office","screen_name","NV",0,"HELLER, Dean","Republican Party",1960
+115,"Senate","RONWYDEN","W000779","Ron Wyden","office","screen_name","OR",0,"WYDEN, Ronald Lee","Democratic Party",1949
+115,"Senate","SENATORDURBIN","D000563","Dick Durbin","office","screen_name","IL",0,"DURBIN, Richard Joseph","Democratic Party",1944
+115,"Senate","SENATORSHAHEEN","S001181","Jeanne Shaheen","office","screen_name","NH",0,"SHAHEEN, Jeanne","Democratic Party",1947
+115,"Senate","SENDUCKWORTH","D000622","Tammy Duckworth","office","screen_name","IL",0,"DUCKWORTH, Tammy","Democratic Party",1968
+115,"Senate","SENWHITEHOUSE","W000802","Sheldon Whitehouse","office","screen_name","RI",0,"WHITEHOUSE, Sheldon","Democratic Party",1955
+115,"Senate","SENTOMCOTTON","C001095","Tom Cotton","office","screen_name","AR",0,"COTTON, Tom","Republican Party",1977
+115,"Senate","SENSHERRODBROWN","B000944","Sherrod Brown","office","screen_name","OH",0,"BROWN, Sherrod","Democratic Party",1952
+115,"Senate","SENBOBCORKER","C001071","Bob Corker","office","screen_name","TN",0,"CORKER, Robert (Bob)","Republican Party",1952
+115,"Senate","SENATORTOMUDALL","U000039","Tom Udall","office","screen_name","NM",0,"UDALL, Thomas (Tom)","Democratic Party",1948
+115,"Senate","MCCONNELLPRESS","M000355","Mitch McConnell","office","screen_name","KY",0,"McCONNELL, Addison Mitchell (Mitch)","Republican Party",1942
+115,"Senate","SENATORLANKFORD","L000575","James Lankford","office","screen_name","OK",0,"LANKFORD, James","Republican Party",1968
+115,"Senate","SENTEDCRUZ","C001098","Ted Cruz","office","screen_name","TX",0,"CRUZ, Rafael Edward (Ted)","Republican Party",1970
+115,"Senate","SENATORENZI","E000285","Mike Enzi","office","screen_name","WY",0,"ENZI, Michael B.","Republican Party",1944
+115,"Senate","SENGARYPETERS","P000595","Gary Peters","office","screen_name","MI",0,"PETERS, Gary C.","Democratic Party",1958
+115,"Senate","JEFFFLAKE","F000444","Jeff Flake","office","screen_name","AZ",0,"FLAKE, Jeff","Republican Party",1962
+115,"Senate","SENATORISAKSON","I000055","Johnny Isakson","office","screen_name","GA",0,"ISAKSON, Johnny","Republican Party",1944
+115,"Senate","INHOFEPRESS","I000024","Jim Inhofe","office","screen_name","OK",0,"INHOFE, James Mountain","Republican Party",1934
+115,"Senate","GRAHAMBLOG","G000359","Lindsey Graham","office","screen_name","SC",0,"GRAHAM, Lindsey O.","Republican Party",1955
+115,"Senate","SENRUBIOPRESS","R000595","Marco Rubio","office","screen_name","FL",0,"RUBIO, Marco","Republican Party",1971
+115,"Senate","SENANGUSKING","K000383","Angus King","office","screen_name","ME",0,"KING, Angus Stanley, Jr.","Independent",1944
+115,"Senate","SENGILLIBRAND","G000555","Kirsten Gillibrand","campaign","screen_name","NY",0,"GILLIBRAND, Kirsten","Democratic Party",1966
+115,"Senate","SENBOBCASEY","C001070","Bob Casey Jr.","office","screen_name","PA",0,"CASEY, Robert (Bob), Jr.","Democratic Party",1960
+115,"Senate","CHRISVANHOLLEN","V000128","Chris Van Hollen","office","screen_name","MD",0,"VAN HOLLEN, Christopher","Democratic Party",1959
+115,"Senate","SENTHADCOCHRAN","C000567","Thad Cochran","office","screen_name","MS",0,"COCHRAN, William Thad","Republican Party",1937
+115,"Senate","SENATORBURR","B001135","Richard Burr","office","screen_name","NC",0,"BURR, Richard M.","Republican Party",1955
+115,"Senate","SENROBPORTMAN","P000449","Rob Portman","office","screen_name","OH",0,"PORTMAN, Robert Jones (Rob)","Republican Party",1955
+115,"Senate","SENATORTESTER","T000464","Jon Tester","office","screen_name","MT",0,"TESTER, Jon","Democratic Party",1956
+115,"Senate","SENATORMENENDEZ","M000639","Bob Menendez","office","screen_name","NJ",0,"MENENDEZ, Robert","Democratic Party",1954
+115,"Senate","JOHNBOOZMAN","B001236","John Boozman","office","screen_name","AR",0,"BOOZMAN, John","Republican Party",1950
+115,"Senate","MAZIEHIRONO","H001042","Mazie Hirono","office","screen_name","HI",0,"HIRONO, Mazie","Democratic Party",1947
+115,"Senate","SEN_JOEMANCHIN","M001183","Joe Manchin","office","screen_name","WV",0,"MANCHIN, Joe, III","Democratic Party",1947
+115,"Senate","SENATORFISCHER","F000463","Deb Fischer","office","screen_name","NE",0,"FISCHER, Debra (Deb)","Republican Party",1951
+115,"Senate","SENBENNETCO","B001267","Michael Bennet","office","prev_names","CO",0,"BENNET, Michael F.","Democratic Party",1964
+115,"Senate","SENSTABENOW","S000770","Debbie Stabenow","office","screen_name","MI",0,"STABENOW, Deborah Ann","Democratic Party",1950
+115,"Senate","SENSASSE","S001197","Ben Sasse","office","screen_name","NE",0,"SASSE, Benjamin Eric","Republican Party",1972
+115,"Senate","SENBRIANSCHATZ","S001194","Brian Schatz","office","screen_name","HI",0,"SCHATZ, Brian Emanuel","Democratic Party",1972
+115,"Senate","SENATORRISCH","R000584","Jim Risch","office","screen_name","ID",0,"RISCH, James","Republican Party",1943
+115,"Senate","SENMIKELEE","L000577","Mike Lee","office","screen_name","UT",0,"LEE, Mike","Republican Party",1971
+115,"Senate","SENWARREN","W000817","Elizabeth Warren","office","screen_name","MA",0,"WARREN, Elizabeth","Democratic Party",1949
+115,"Senate","SENBLUMENTHAL","B001277","Richard Blumenthal","office","screen_name","CT",0,"BLUMENTHAL, Richard","Democratic Party",1946
+115,"Senate","SENDAVIDPERDUE","P000612","David Perdue","office","screen_name","GA",0,"PERDUE, David Alfred, Jr.","Republican Party",1949
+115,"Senate","SENFRANKEN","F000457","Al Franken","office","screen_name","MN",0,"FRANKEN, Al","Democratic Party",1951
+115,"Senate","BILLCASSIDY","C001075","Bill Cassidy","campaign","screen_name","LA",0,"CASSIDY, Bill","Republican Party",1957
+115,"Senate","SENCORYGARDNER","G000562","Cory Gardner","office","screen_name","CO",0,"GARDNER, Cory","Republican Party",1974
+115,"Senate","LISAMURKOWSKI","M001153","Lisa Murkowski","office","screen_name","AK",0,"MURKOWSKI, Lisa","Republican Party",1957
+115,"Senate","SENATORCANTWELL","C000127","Maria Cantwell","office","screen_name","WA",0,"CANTWELL, Maria E.","Democratic Party",1958
+115,"Senate","SENATORBALDWIN","B001230","Tammy Baldwin","office","screen_name","WI",0,"BALDWIN, Tammy","Democratic Party",1962
+115,"Senate","SENDONNELLY","D000607","Joe Donnelly","office","screen_name","IN",0,"DONNELLY, Joe","Democratic Party",1955
+115,"Senate","SENATORWICKER","W000437","Roger Wicker","office","screen_name","MS",0,"WICKER, Roger F.","Republican Party",1951
+115,"Senate","AMYKLOBUCHAR","K000367","Amy Klobuchar","campaign","screen_name","MN",0,"KLOBUCHAR, Amy","Democratic Party",1960
+115,"Senate","SENATORHEITKAMP","H001069","Heidi Heitkamp","office","screen_name","ND",0,"HEITKAMP, Mary Kathryn (Heidi)","Democratic Party",1955
+115,"Senate","SENJONIERNST","E000295","Joni Ernst","office","screen_name","IA",0,"ERNST, Joni","Republican Party",1970
+115,"Senate","CHRISCOONS","C001088","Chris Coons","campaign","screen_name","DE",0,"COONS, Christopher A.","Democratic Party",1963
+115,"Senate","MARKWARNER","W000805","Mark Warner","office","screen_name","VA",0,"WARNER, Mark","Democratic Party",1954
+115,"Senate","JOHNCORNYN","C001056","John Cornyn","office","screen_name","TX",0,"CORNYN, John","Republican Party",1952
+115,"Senate","SENRONJOHNSON","J000293","Ron Johnson","office","screen_name","WI",0,"JOHNSON, Ron","Republican Party",1955
+115,"Senate","SENATORLEAHY","L000174","Patrick Leahy","office","screen_name","VT",0,"LEAHY, Patrick Joseph","Democratic Party",1940
+115,"Senate","SENSCHUMER","S000148","Chuck Schumer","office","screen_name","NY",0,"SCHUMER, Charles Ellis (Chuck)","Democratic Party",1950
+115,"Senate","SENJOHNKENNEDY","K000393","John Kennedy","office","screen_name","LA",0,"KENNEDY, John Neely","Republican Party",1951
+115,"Senate","SENJEFFMERKLEY","M001176","Jeff Merkley","office","screen_name","OR",0,"MERKLEY, Jeff","Democratic Party",1956
+115,"Senate","ROYBLUNT","B000575","Roy Blunt","office","screen_name","MO",0,"BLUNT, Roy","Republican Party",1950
+115,"Senate","SENSHELBY","S000320","Richard Shelby","office","screen_name","AL",0,"SHELBY, Richard C.","Republican Party",1934
+115,"Senate","SENJOHNHOEVEN","H001061","John Hoeven","office","screen_name","ND",0,"HOEVEN, John","Republican Party",1957
+115,"Senate","RANDPAUL","P000603","Rand Paul","office","screen_name","KY",0,"PAUL, Rand","Republican Party",1963
+115,"Senate","SENDANSULLIVAN","S001198","Dan Sullivan","office","screen_name","AK",0,"SULLIVAN, Daniel Scott","Republican Party",1964
+115,"Senate","SENATORTIMSCOTT","S001184","Tim Scott","office","screen_name","SC",0,"SCOTT, Tim","Republican Party",1965
+115,"Senate","SENMARKEY","M000133","Ed Markey","office","screen_name","MA",0,"MARKEY, Edward John","Democratic Party",1946
 116,"House","REPDEVINNUNES","N000181","Devin Nunes","office","screen_name","CA",22,"NUNES, Devin","Republican Party",1973
 116,"House","ANGIECRAIGMN","C001119","Angie Craig","campaign","screen_name","MN",2,"CRAIG, Angela","Democratic Party",1972
 116,"House","BENRAYLUJAN","L000570","Ben Ray Lujan","campaign","screen_name","NM",3,"LUJÁN, Ben Ray","Democratic Party",1972

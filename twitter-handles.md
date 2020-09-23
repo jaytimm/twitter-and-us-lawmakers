@@ -102,7 +102,8 @@ handles <- gwu_accounts %>%
   ungroup() %>%
   filter(!(n == 2 & handle_type == 'prev_names')) %>%
   select(-n) %>%
-  mutate(congress = as.integer(congress)) %>%
+  mutate(congress = as.integer(congress),
+         chamber = ifelse(chamber == 'Senators', 'Senate', chamber)) %>%
   na.omit()
 ```
 
@@ -148,8 +149,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/Rtmpgc0l2I/HS115_members.csv"
-    ## [1] "/tmp/Rtmpgc0l2I/HS116_members.csv"
+    ## [1] "/tmp/RtmpU6yyXr/HS115_members.csv"
+    ## [1] "/tmp/RtmpU6yyXr/HS116_members.csv"
 
 ------------------------------------------------------------------------
 
