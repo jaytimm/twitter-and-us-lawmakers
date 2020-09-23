@@ -1,7 +1,7 @@
 Twitter handles for US lawmakers
 ================================
 
-2020-09-22
+2020-09-23
 
 [Twitter handle data
 set](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles-voteview.csv)
@@ -64,7 +64,47 @@ handles <- toc_accounts$accounts %>%
   select(bioguide_id, member, account_type, handle_type, screen_name) 
 ```
 
-------------------------------------------------------------------------
+GWU Twitter handles
+-------------------
+
+GWU breaks down lawmaker handles by chamber & congress, which the TOC
+does not. So, we extract these details from GWU, and combine the two
+data sets (via Twitter handle).
+
+``` r
+setwd(ldir)
+gfiles <- list.files(path = ldir, 
+                     pattern = "csv", 
+                     recursive = TRUE) 
+
+cs <- gsub('(^.*congress)(...)(.*$)', '\\2', gfiles)
+ss <- stringr::str_to_title(
+  gsub('(^.*[0-9]-)(.*)(-accounts.*$)', '\\2', gfiles)
+  )
+
+gwu_accounts <- lapply(1:length(gfiles), function(x) {
+  read.csv(gfiles[x]) %>% mutate(congress = cs[x],
+                                 chamber = as.character(ss[x])) 
+  } ) %>% 
+  data.table::rbindlist() %>%
+  mutate(screen_name = toupper(Token)) %>%
+  select(congress, chamber, screen_name)
+```
+
+TOC + GWU Twitter list
+----------------------
+
+``` r
+handles <- gwu_accounts %>% 
+  left_join(handles) %>%
+  group_by(screen_name) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  filter(!(n == 2 & handle_type == 'prev_names')) %>%
+  select(-n) %>%
+  mutate(congress = as.integer(congress)) %>%
+  na.omit()
+```
 
 ``` r
 handles %>%
@@ -72,14 +112,14 @@ handles %>%
   knitr::kable()
 ```
 
-| bioguide\_id | member        | account\_type | handle\_type | screen\_name    |
-|:-------------|:--------------|:--------------|:-------------|:----------------|
-| Y000033      | Don Young     | office        | screen\_name | REPDONYOUNG     |
-| Y000033      | Don Young     | campaign      | screen\_name | DONYOUNGAK      |
-| B001289      | Bradley Byrne | campaign      | screen\_name | BRADLEYBYRNE    |
-| B001289      | Bradley Byrne | office        | screen\_name | REPBYRNE        |
-| P000609      | Gary Palmer   | campaign      | screen\_name | PALMER4ALABAMA  |
-| P000609      | Gary Palmer   | office        | screen\_name | USREPGARYPALMER |
+|  congress| chamber | screen\_name    | bioguide\_id | member             | account\_type | handle\_type |
+|---------:|:--------|:----------------|:-------------|:-------------------|:--------------|:-------------|
+|       115| House   | KYCOMER         | C001108      | James Comer        | campaign      | prev\_names  |
+|       115| House   | REPJACKYROSEN   | R000608      | Jacky Rosen        | office        | prev\_names  |
+|       115| House   | REPESPAILLAT    | E000297      | Adriano Espaillat  | office        | screen\_name |
+|       115| House   | REPTREY         | H001074      | Trey Hollingsworth | office        | screen\_name |
+|       115| House   | REPDWIGHTEVANS  | E000296      | Dwight Evans       | office        | screen\_name |
+|       115| House   | ROGERMARSHALLMD | M001198      | Roger Marshall     | campaign      | screen\_name |
 
 VoteView & lawmaker information
 -------------------------------
@@ -108,13 +148,13 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/Rtmp3l9GLu/HS115_members.csv"
-    ## [1] "/tmp/Rtmp3l9GLu/HS116_members.csv"
+    ## [1] "/tmp/Rtmpgc0l2I/HS115_members.csv"
+    ## [1] "/tmp/Rtmpgc0l2I/HS116_members.csv"
 
 ------------------------------------------------------------------------
 
 **Via the Biodguide identifier**, we can easily add these details to our
-TOC Twitter list.
+TOC/GWU Twitter list.
 
 ``` r
 handles %>%
