@@ -4,7 +4,7 @@ Twitter handles for US lawmakers
 2020-09-22
 
 [Twitter handle data
-set](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles.csv)
+set](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles-voteview.csv)
 
 Tweets of Congress
 ------------------
@@ -49,7 +49,7 @@ ids <- data.frame(member = toc_accounts$name,
 
 names(toc_accounts$accounts) <- toc_accounts$name 
 
-tweets_of_congress <- toc_accounts$accounts %>% 
+handles <- toc_accounts$accounts %>% 
   bind_rows(.id = 'member') %>%
   
   select(member, account_type, screen_name, prev_names) %>% 
@@ -64,56 +64,132 @@ tweets_of_congress <- toc_accounts$accounts %>%
   select(bioguide_id, member, account_type, handle_type, screen_name) 
 ```
 
-GWU Twitter handles
--------------------
-
-GWU breaks down lawmaker handles by chamber & congress, which the TOC
-does not. So, we extract these details from GWU, and combine the two
-data sets (via Twitter handle).
+------------------------------------------------------------------------
 
 ``` r
-setwd(ldir)
-gfiles <- list.files(path = ldir, 
-                     pattern = "csv", 
-                     recursive = TRUE) 
-
-cs <- gsub('(^.*congress)(...)(.*$)', '\\2', gfiles)
-ss <- stringr::str_to_title(
-  gsub('(^.*[0-9]-)(.*)(-accounts.*$)', '\\2', gfiles)
-  )
-
-gwu_accounts <- lapply(1:length(gfiles), function(x) {
-  read.csv(gfiles[x]) %>% mutate(congress = cs[x],
-                                 chamber = as.character(ss[x])) 
-  } ) %>% 
-  data.table::rbindlist() %>%
-  mutate(screen_name = toupper(Token)) %>%
-  select(congress, chamber, screen_name)
+handles %>%
+  head() %>%
+  knitr::kable()
 ```
 
-TOC + GWU Twitter list
-----------------------
-
-A small sample of the new Twitter handle data set is presented below.
-
-``` r
-handles <- gwu_accounts %>% 
-  left_join(tweets_of_congress) %>%
-  group_by(screen_name) %>%
-  mutate(n = n()) %>%
-  ungroup() %>%
-  filter(!(n == 2 & handle_type == 'prev_names')) %>%
-  select(-n) %>%
-  na.omit()
-```
-
-|  congress| chamber | screen\_name   | bioguide\_id | member             | account\_type | handle\_type |
-|---------:|:--------|:---------------|:-------------|:-------------------|:--------------|:-------------|
-|       115| House   | KYCOMER        | C001108      | James Comer        | campaign      | prev\_names  |
-|       115| House   | REPJACKYROSEN  | R000608      | Jacky Rosen        | office        | prev\_names  |
-|       115| House   | REPESPAILLAT   | E000297      | Adriano Espaillat  | office        | screen\_name |
-|       115| House   | REPTREY        | H001074      | Trey Hollingsworth | office        | screen\_name |
-|       115| House   | REPDWIGHTEVANS | E000296      | Dwight Evans       | office        | screen\_name |
+<table style="width:100%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 4%" />
+<col style="width: 9%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">congress</th>
+<th style="text-align: left;">chamber</th>
+<th style="text-align: left;">screen_name</th>
+<th style="text-align: left;">bioguide_id</th>
+<th style="text-align: left;">member</th>
+<th style="text-align: left;">account_type</th>
+<th style="text-align: left;">handle_type</th>
+<th style="text-align: left;">state_abbrev</th>
+<th style="text-align: right;">district_code</th>
+<th style="text-align: left;">bioname</th>
+<th style="text-align: left;">party_name</th>
+<th style="text-align: right;">born</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">KYCOMER</td>
+<td style="text-align: left;">C001108</td>
+<td style="text-align: left;">James Comer</td>
+<td style="text-align: left;">campaign</td>
+<td style="text-align: left;">prev_names</td>
+<td style="text-align: left;">KY</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">COMER, James</td>
+<td style="text-align: left;">Republican Party</td>
+<td style="text-align: right;">1972</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPJACKYROSEN</td>
+<td style="text-align: left;">R000608</td>
+<td style="text-align: left;">Jacky Rosen</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">prev_names</td>
+<td style="text-align: left;">NV</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">ROSEN, Jacklyn Sheryl</td>
+<td style="text-align: left;">Democratic Party</td>
+<td style="text-align: right;">1957</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPESPAILLAT</td>
+<td style="text-align: left;">E000297</td>
+<td style="text-align: left;">Adriano Espaillat</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">NY</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">ESPAILLAT, Adriano J.</td>
+<td style="text-align: left;">Democratic Party</td>
+<td style="text-align: right;">1954</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPTREY</td>
+<td style="text-align: left;">H001074</td>
+<td style="text-align: left;">Trey Hollingsworth</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">IN</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">HOLLINGSWORTH, Joseph Albert III</td>
+<td style="text-align: left;">Republican Party</td>
+<td style="text-align: right;">1983</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPDWIGHTEVANS</td>
+<td style="text-align: left;">E000296</td>
+<td style="text-align: left;">Dwight Evans</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">PA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">EVANS, Dwight</td>
+<td style="text-align: left;">Democratic Party</td>
+<td style="text-align: right;">1954</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">ROGERMARSHALLMD</td>
+<td style="text-align: left;">M001198</td>
+<td style="text-align: left;">Roger Marshall</td>
+<td style="text-align: left;">campaign</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">KS</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">MARSHALL, Roger Wayne</td>
+<td style="text-align: left;">Republican Party</td>
+<td style="text-align: right;">1960</td>
+</tr>
+</tbody>
+</table>
 
 VoteView & lawmaker information
 -------------------------------
@@ -142,8 +218,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/RtmpFQPqMV/HS115_members.csv"
-    ## [1] "/tmp/RtmpFQPqMV/HS116_members.csv"
+    ## [1] "/tmp/RtmpI7b2TE/HS115_members.csv"
+    ## [1] "/tmp/RtmpI7b2TE/HS116_members.csv"
 
 **Via the Biodguide identifier**, we can easily add these details to our
 GWU/TOC Twitter list.
