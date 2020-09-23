@@ -218,37 +218,134 @@ vv_meta <- lapply(c('115', '116'), function(x) {
          party_name, born) # nominate_dim1
 ```
 
-    ## [1] "/tmp/RtmpI7b2TE/HS115_members.csv"
-    ## [1] "/tmp/RtmpI7b2TE/HS116_members.csv"
+    ## [1] "/tmp/RtmpLc5iGn/HS115_members.csv"
+    ## [1] "/tmp/RtmpLc5iGn/HS116_members.csv"
 
 **Via the Biodguide identifier**, we can easily add these details to our
 GWU/TOC Twitter list.
 
 ``` r
-full <- handles %>%
-  left_join(vv_meta)
-
-full %>% head()
+handles %>%
+  left_join(vv_meta) %>%
+  head() %>%
+  knitr::kable()
 ```
 
-    ##   congress chamber     screen_name bioguide_id             member account_type
-    ## 1      115   House         KYCOMER     C001108        James Comer     campaign
-    ## 2      115   House   REPJACKYROSEN     R000608        Jacky Rosen       office
-    ## 3      115   House    REPESPAILLAT     E000297  Adriano Espaillat       office
-    ## 4      115   House         REPTREY     H001074 Trey Hollingsworth       office
-    ## 5      115   House  REPDWIGHTEVANS     E000296       Dwight Evans       office
-    ## 6      115   House ROGERMARSHALLMD     M001198     Roger Marshall     campaign
-    ##   handle_type state_abbrev district_code                          bioname
-    ## 1  prev_names           KY             1                     COMER, James
-    ## 2  prev_names           NV             3            ROSEN, Jacklyn Sheryl
-    ## 3 screen_name           NY            13            ESPAILLAT, Adriano J.
-    ## 4 screen_name           IN             9 HOLLINGSWORTH, Joseph Albert III
-    ## 5 screen_name           PA             2                    EVANS, Dwight
-    ## 6 screen_name           KS             1            MARSHALL, Roger Wayne
-    ##         party_name born
-    ## 1 Republican Party 1972
-    ## 2 Democratic Party 1957
-    ## 3 Democratic Party 1954
-    ## 4 Republican Party 1983
-    ## 5 Democratic Party 1954
-    ## 6 Republican Party 1960
+<table style="width:100%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 4%" />
+<col style="width: 9%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">congress</th>
+<th style="text-align: left;">chamber</th>
+<th style="text-align: left;">screen_name</th>
+<th style="text-align: left;">bioguide_id</th>
+<th style="text-align: left;">member</th>
+<th style="text-align: left;">account_type</th>
+<th style="text-align: left;">handle_type</th>
+<th style="text-align: left;">state_abbrev</th>
+<th style="text-align: right;">district_code</th>
+<th style="text-align: left;">bioname</th>
+<th style="text-align: left;">party_name</th>
+<th style="text-align: right;">born</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">KYCOMER</td>
+<td style="text-align: left;">C001108</td>
+<td style="text-align: left;">James Comer</td>
+<td style="text-align: left;">campaign</td>
+<td style="text-align: left;">prev_names</td>
+<td style="text-align: left;">KY</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">COMER, James</td>
+<td style="text-align: left;">Republican Party</td>
+<td style="text-align: right;">1972</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPJACKYROSEN</td>
+<td style="text-align: left;">R000608</td>
+<td style="text-align: left;">Jacky Rosen</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">prev_names</td>
+<td style="text-align: left;">NV</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">ROSEN, Jacklyn Sheryl</td>
+<td style="text-align: left;">Democratic Party</td>
+<td style="text-align: right;">1957</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPESPAILLAT</td>
+<td style="text-align: left;">E000297</td>
+<td style="text-align: left;">Adriano Espaillat</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">NY</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">ESPAILLAT, Adriano J.</td>
+<td style="text-align: left;">Democratic Party</td>
+<td style="text-align: right;">1954</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPTREY</td>
+<td style="text-align: left;">H001074</td>
+<td style="text-align: left;">Trey Hollingsworth</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">IN</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">HOLLINGSWORTH, Joseph Albert III</td>
+<td style="text-align: left;">Republican Party</td>
+<td style="text-align: right;">1983</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">REPDWIGHTEVANS</td>
+<td style="text-align: left;">E000296</td>
+<td style="text-align: left;">Dwight Evans</td>
+<td style="text-align: left;">office</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">PA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">EVANS, Dwight</td>
+<td style="text-align: left;">Democratic Party</td>
+<td style="text-align: right;">1954</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">House</td>
+<td style="text-align: left;">ROGERMARSHALLMD</td>
+<td style="text-align: left;">M001198</td>
+<td style="text-align: left;">Roger Marshall</td>
+<td style="text-align: left;">campaign</td>
+<td style="text-align: left;">screen_name</td>
+<td style="text-align: left;">KS</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">MARSHALL, Roger Wayne</td>
+<td style="text-align: left;">Republican Party</td>
+<td style="text-align: right;">1960</td>
+</tr>
+</tbody>
+</table>
