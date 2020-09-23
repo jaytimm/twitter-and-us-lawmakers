@@ -8,6 +8,5 @@
 
 3. [A flex-dashboard application](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/flex-dash.md) for searching a corpus of tweets for lexical patterns in context; and
 
-4. [From tweets to political ideology and election returns](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/to-other.md).
 
 **The goal of this project is super simple**: to have a congressional corpus of tweets -- updated daily -- that can be easily searched, and easily linked (via lawmaker identifier) to other types of political data, eg, election returns, political ideologies, census data/geographies, etc. 
