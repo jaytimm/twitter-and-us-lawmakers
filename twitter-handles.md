@@ -147,14 +147,16 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/RtmpvBDMIR/HS115_members.csv"
-    ## [1] "/tmp/RtmpvBDMIR/HS116_members.csv"
+    ## [1] "/tmp/RtmpIpnR0F/HS115_members.csv"
+    ## [1] "/tmp/RtmpIpnR0F/HS116_members.csv"
 
 ``` r
 ## at-large here ???
 vv_meta1 <- vv_meta %>%
   mutate(district_code = stringr::str_pad (district_code, 2, pad = 0),
-         district_code = ifelse(chamber == 'Senate', 'statewide', district_code),
+         district_code = ifelse(chamber == 'Senate', 
+                                'statewide', 
+                                district_code),
          party_name = case_when(party_code == '100' ~ 'democratic',
                                 party_code == '200' ~ 'republican',
                                 party_code == '328' ~ 'independent')) %>%
@@ -162,11 +164,12 @@ vv_meta1 <- vv_meta %>%
          state_abbrev, district_code, party_name) # nominate_dim1
 ```
 
-------------------------------------------------------------------------
+Full Twitter list
+-----------------
 
 **Via the Biodguide identifier**, we can easily add these details to our
 TOC/GWU Twitter list. Data are available as a
-[CSV](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles-voteview.csv),
+[csv](https://github.com/jaytimm/twitter-and-us-lawmakers/blob/master/data/lawmaker-twitter-handles-voteview.csv),
 and also included as a table in the [`uspols` R
 package](https://github.com/jaytimm/uspols).
 
