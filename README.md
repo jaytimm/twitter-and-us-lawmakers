@@ -11,23 +11,8 @@ data/geographies, etc.
 -   [twitter-and-us-lawmakers](#twitter-and-us-lawmakers)
     -   [I Twitter handles for US
         lawmakers](#i-twitter-handles-for-us-lawmakers)
-        -   [Tweets of Congress](#tweets-of-congress)
-        -   [GWU Twitter handles](#gwu-twitter-handles)
-        -   [TOC + GWU Twitter list](#toc-+-gwu-twitter-list)
-        -   [VoteView & lawmaker
-            information](#voteview-&-lawmaker-information)
-        -   [Full Twitter list](#full-twitter-list)
     -   [II Twitter Corpus](#ii-twitter-corpus)
     -   [III Twitter corpus search](#iii-twitter-corpus-search)
-        -   [Load a corpus of tweets](#load-a-corpus-of-tweets)
-        -   [Search for complex lexical
-            patterns](#search-for-complex-lexical-patterns)
-        -   [Explore search results in
-            context](#explore-search-results-in-context)
-        -   [Get simple frequency counts of search
-            terms](#get-simple-frequency-counts-of-search-terms)
-        -   [Investigate historical
-            patterns](#investigate-historical-patterns)
     -   [IV Summary](#iv-summary)
 
 I Twitter handles for US lawmakers
@@ -171,8 +156,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/RtmpLMTMar/HS115_members.csv"
-    ## [1] "/tmp/RtmpLMTMar/HS116_members.csv"
+    ## [1] "/tmp/Rtmp9YBWJM/HS115_members.csv"
+    ## [1] "/tmp/Rtmp9YBWJM/HS116_members.csv"
 
 ``` r
 ## at-large here ???
