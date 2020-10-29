@@ -1,10 +1,10 @@
 twitter-and-us-lawmakers
 ========================
 
-Some thoughts and resources for building a historical corpus of US
-lawmaker tweets that can be easily searched, and easily linked (via
-lawmaker identifier) to other types of political data, eg, election
-returns, political ideologies, census data/geographies, etc.
+Some thoughts and resources re: US lawmakers & Twitter & corpus search.
+Simple methods for crossing Twitter data to other types of political
+data, eg, election returns, political ideologies, census
+data/geographies, etc.
 
 2020-10-29
 
@@ -58,11 +58,9 @@ notes on its composition/utility:
 
 -   The list also accounts for any changes in Twitter handles.
 
-------------------------------------------------------------------------
-
-The json file is available on Git Hub
-[here](https://github.com/alexlitel/congresstweets-automator/blob/master/data/historical-users-filtered.json).
-The code below details the json extraction process.
+> The json file is available on Git Hub
+> [here](https://github.com/alexlitel/congresstweets-automator/blob/master/data/historical-users-filtered.json).
+> The code below details the json extraction process.
 
 ``` r
 setwd(ldir)
@@ -173,8 +171,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/RtmpugMaMD/HS115_members.csv"
-    ## [1] "/tmp/RtmpugMaMD/HS116_members.csv"
+    ## [1] "/tmp/RtmpLMTMar/HS115_members.csv"
+    ## [1] "/tmp/RtmpLMTMar/HS116_members.csv"
 
 ``` r
 ## at-large here ???
