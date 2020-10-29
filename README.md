@@ -87,7 +87,8 @@ handles <- toc_accounts$accounts %>%
                values_to = "screen_name") %>%
   filter(screen_name != 'NULL')  %>%
   left_join(ids) %>%
-  select(bioguide_id, member, account_type, handle_type, screen_name) 
+  select(bioguide_id, member, account_type, 
+         handle_type, screen_name) 
 ```
 
 ### GWU Twitter handles
@@ -108,8 +109,9 @@ ss <- stringr::str_to_title(
   )
 
 gwu_accounts <- lapply(1:length(gfiles), function(x) {
-  read.csv(gfiles[x]) %>% mutate(congress = cs[x],
-                                 chamber = as.character(ss[x])) 
+  read.csv(gfiles[x]) %>% 
+    mutate(congress = cs[x],
+           chamber = as.character(ss[x])) 
   } ) %>% 
   data.table::rbindlist() %>%
   mutate(screen_name = toupper(Token)) %>%
@@ -127,7 +129,8 @@ handles <- gwu_accounts %>%
   filter(!(n == 2 & handle_type == 'prev_names')) %>%
   select(-n) %>%
   mutate(congress = as.integer(congress),
-         chamber = ifelse(chamber == 'Senators', 'Senate', chamber)) %>%
+         chamber = ifelse(chamber == 'Senators', 
+                          'Senate', chamber)) %>%
   na.omit()
 ```
 
@@ -170,8 +173,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/RtmpK69hU5/HS115_members.csv"
-    ## [1] "/tmp/RtmpK69hU5/HS116_members.csv"
+    ## [1] "/tmp/Rtmp1a8UXG/HS115_members.csv"
+    ## [1] "/tmp/Rtmp1a8UXG/HS116_members.csv"
 
 ``` r
 ## at-large here ???
@@ -198,7 +201,9 @@ package](https://github.com/jaytimm/uspols).
 ``` r
 handles %>%
   left_join(vv_meta1, 
-            by = c("congress", "chamber", "bioguide_id")) %>%
+            by = c("congress", 
+                   "chamber", 
+                   "bioguide_id")) %>%
   head() %>%
   knitr::kable()
 ```
@@ -365,3 +370,5 @@ for searching a Twitter corpus for lexical patterns in context. A quick
 ### Investigate historical patterns
 
 <img src="images/time.png" width="100%"/>
+
+IV Summary
