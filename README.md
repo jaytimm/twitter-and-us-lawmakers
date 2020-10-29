@@ -2,9 +2,6 @@ twitter-and-us-lawmakers
 ========================
 
 Some thoughts and resources re: US lawmakers & Twitter & corpus search.
-Simple methods for crossing Twitter data to other types of political
-data, eg, election returns, political ideologies, census
-data/geographies, etc.
 
 2020-10-29
 
@@ -156,8 +153,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/Rtmp9YBWJM/HS115_members.csv"
-    ## [1] "/tmp/Rtmp9YBWJM/HS116_members.csv"
+    ## [1] "/tmp/Rtmpagf8cq/HS115_members.csv"
+    ## [1] "/tmp/Rtmpagf8cq/HS116_members.csv"
 
 ``` r
 ## at-large here ???
