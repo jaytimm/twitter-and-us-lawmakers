@@ -1,9 +1,9 @@
 twitter-and-us-lawmakers
 ========================
 
-Some thoughts and resources re: US lawmakers & Twitter & corpus search.
-
 2020-10-29
+
+Some thoughts and resources re: US lawmakers & Twitter & corpus search.
 
 -   [twitter-and-us-lawmakers](#twitter-and-us-lawmakers)
     -   [I Twitter handles for US
@@ -73,9 +73,10 @@ handles <- toc_accounts$accounts %>%
 
 ### GWU Twitter handles
 
-GWU breaks down lawmaker handles by chamber & congress, which the TOC
-does not. So, we extract these details from GWU, and combine the two
-data sets (via Twitter handle).
+Tweet sets made available via [the George Washington University (GWU)
+Library](https://tweetsets.library.gwu.edu/) break down lawmaker handles
+by chamber & congress, which the TOC does not. So, we extract these
+details from GWU, and combine the two data sets (via Twitter handle).
 
 ``` r
 setwd(ldir)
@@ -153,8 +154,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/Rtmpagf8cq/HS115_members.csv"
-    ## [1] "/tmp/Rtmpagf8cq/HS116_members.csv"
+    ## [1] "/tmp/RtmpWeAafk/HS115_members.csv"
+    ## [1] "/tmp/RtmpWeAafk/HS116_members.csv"
 
 ``` r
 ## at-large here ???
