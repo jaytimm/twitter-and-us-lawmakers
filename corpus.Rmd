@@ -1,0 +1,78 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+
+
+
+
+## Descriptives
+
+```{r include=FALSE}
+library(tidyverse)
+tc_location <- '/home/jtimm/jt_work/GitHub/twitter_corpus/'
+R.utils::sourceDirectory(paste0(tc_location, 'fns/'), 
+                         modifiedOnly = TRUE)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+korpus <- load_lawmaker_tweets()
+
+xsum1 <- korpus %>%
+  mutate(tokens = tokenizers::count_words(text),
+         yr = gsub('-.*', '', created_at))
+
+xsum2 <- xsum1 %>%
+  group_by(congress, yr) %>%
+  summarise(tweets = n(),
+            tokens = sum(tokens),
+            handles = length(unique(toupper(screen_name))),
+            ave = round(tokens/tweets, 1),
+            dates = paste0(min(created_at), ' : ', 
+                           max(created_at))) %>%
+  mutate(tweets = formatC(tweets, big.mark = ','),
+         tokens = formatC(tokens, big.mark = ','))
+
+xsum2 %>% knitr::kable()
+```
+
+
+---
+
+1. Average length of tweets (in words) increased substantially from 2017 to 2018; presumably a result of Twitter’s increased character limit from 140 to 280 at the end of 2017.
+
+2. Total number of Twitter lawmaker accounts roughly doubled from the 115th congress to the 116th. 
+
+The latter, presumably a function of the inclusion of both office & campaign Twitter accounts.  It is not clear if this is per some methodological change on the part of GWU, or a result of more lawmakers in 116 using more than one account.
+
+
+---
+
+
+```{r fig.height=6, message=FALSE, warning=FALSE}
+xsum1 %>%
+  group_by(congress, yr, created_at) %>%
+  summarise(tweets = n(),
+            tokens = sum(tokens),
+            ers = length(unique(screen_name))) %>%
+  ungroup() %>%
+  mutate(moving_n = zoo::rollmean(tweets, 
+                                  k = 60, 
+                                  fill = NA)) %>%
+  ggplot() +
+  geom_line(aes(x = created_at, 
+                y = tweets)) +
+  
+    geom_line(aes(x = created_at,
+                y = moving_n),
+            color = 'steelblue',
+            #linetype = 2,
+            size = 0.75) +
+  theme_bw() +
+  ggtitle('Total daily tweets: US Congresses 115 & 116')
+```
+
+
+
