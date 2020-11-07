@@ -14,15 +14,6 @@ twitter-and-us-lawmakers
 -   [Thoughts corpus compilation](#thoughts-corpus-compilation)
 -   [A shiny app for Twitter corpus
     search](#a-shiny-app-for-twitter-corpus-search)
-    -   [Load a corpus of tweets](#load-a-corpus-of-tweets)
-    -   [Search for complex lexical
-        patterns](#search-for-complex-lexical-patterns)
-    -   [Explore search results in
-        context](#explore-search-results-in-context)
-    -   [Get simple frequency counts of search
-        terms](#get-simple-frequency-counts-of-search-terms)
-    -   [Investigate historical
-        patterns](#investigate-historical-patterns)
 -   [Summary](#summary)
 
 Twitter handles for US lawmakers
@@ -170,8 +161,8 @@ vv_meta <- lapply(c('115', '116'), function(x) {
   mutate(district_code = ifelse(x==1, 0, district_code))
 ```
 
-    ## [1] "/tmp/RtmpUk15jd/HS115_members.csv"
-    ## [1] "/tmp/RtmpUk15jd/HS116_members.csv"
+    ## [1] "/tmp/Rtmp9bk4Ff/HS115_members.csv"
+    ## [1] "/tmp/Rtmp9bk4Ff/HS116_members.csv"
 
 ``` r
 ## at-large here ???
@@ -348,25 +339,25 @@ for searching a Twitter corpus for lexical patterns in context. A quick
 
 <img src="images/title.png" width="100%"/>
 
-### Load a corpus of tweets
+#### Load a corpus of tweets
 
 Eg, output from the `rtweet` package
 
 <img src="images/s1.png" width="100%"/>
 
-### Search for complex lexical patterns
+#### Search for complex lexical patterns
 
 <img src="images/search.png" width="100%"/>
 
-### Explore search results in context
+#### Explore search results in context
 
 <img src="images/kwic.png" width="100%"/>
 
-### Get simple frequency counts of search terms
+#### Get simple frequency counts of search terms
 
 <img src="images/s3.png" width="100%"/>
 
-### Investigate historical patterns
+#### Investigate historical patterns
 
 <img src="images/time.png" width="100%"/>
 
